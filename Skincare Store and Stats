@@ -1,0 +1,33 @@
+CREATE TABLE skincare (id INTEGER PRIMARY KEY, name TEXT, price INTEGER, quantity INTEGER, aisle INTEGER);
+
+INSERT INTO skincare VALUES (1, "Oxygen Infusion Wash", 130, 3, 2);
+INSERT INTO skincare VALUES (2, "AlphaRet Overnight Cream", 160, 6, 3);
+INSERT INTO skincare VALUES (3, "Alto Defense Serum", 119, 10, 6);
+INSERT INTO skincare VALUES (4, "Lip Mask", 20, 15, 2);
+INSERT INTO skincare VALUES (5, "Trio Rebalancing", 170, 5, 3);
+INSERT INTO skincare VALUES (6, "Toner", 53, 1, 4);
+INSERT INTO skincare VALUES (7, "Ageless Serum", 78, 10, 7);
+INSERT INTO skincare VALUES (8, "Precleanse", 42, 5, 3);
+INSERT INTO skincare VALUES (9, "Fountain of Youth", 220, 7, 5);
+INSERT INTO skincare VALUES (10, "Melanotech Drops", 98, 3, 1);
+INSERT INTO skincare VALUES (11, "Silk pillow case", 18, 2, 1);
+INSERT INTO skincare VALUES (12, "Facial Headband", 20, 5, 1);
+INSERT INTO skincare VALUES (13, "Facial Cloths", 30, 7, 1);
+INSERT INTO skincare VALUES (14, "Peel", 283, 4, 6);
+INSERT INTO skincare VALUES (15, "Chap Stick", 6, 100, 1);
+SELECT SUM (quantity) FROM skincare;
+SELECT * FROM skincare 
+WHERE "price" >= 100
+ORDER BY price asc;
+
+SELECT * FROM skincare 
+WHERE "quantity" <=5
+ORDER By quantity desc;
+
+SELECT * FROM skincare 
+ORDER BY aisle asc; 
+
+SELECT id FROM skincare;
+
+SELECT * from skincare 
+ORDER by price 
