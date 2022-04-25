@@ -1,0 +1,56 @@
+CREATE TABLE singers (Id INTEGER PRIMARY KEY,
+first_name TEXT,
+last_name TEXT,
+birthday_year NUMERIC); 
+
+INSERT into singers VALUES (1, "Roddy", "Ricch", 1998);
+INSERT into singers VALUES (2, "Taylor", "Swift", 1989);
+INSERT into singers VALUES (3, "Beyonce", "Knowles", 1981);
+INSERT into singers VALUES (4, "Britney", "Spears", 1981);
+INSERT into singers VALUES (5, "Chris", "Brown", 1989);
+INSERT into singers VALUES (6, "Kanye", "West", 1977);
+
+CREATE TABLE singer_genres (first_name TEXT, genre TEXT);
+
+INSERT into singer_genres VALUES ("Roddy", "Rap");
+INSERT into singer_genres VALUES ("Taylor", "Pop");
+INSERT into singer_genres VALUES ("Beyonce", "R&B");
+INSERT into singer_genres VALUES ("Britney", "Pop");
+INSERT into singer_genres VALUES ("Chris", "R&B");
+INSERT into singer_genres VALUES ("Kanye", "Rap");
+
+CREATE TABLE married_singers (first_name TEXT, spouses_name TEXT, year_married NUMERIC);
+
+INSERT into married_singers VALUES ("Beyonce", "Jay Z", 2008);
+INSERT into married_singers VALUES ("Britney", "Sam", 2022);
+
+CREATE TABLE record_label (id INTEGER PRIMARY KEY, record_label TEXT);
+
+INSERT into record_label VALUES (1, "Atlantic Records");
+INSERT into record_label VALUES (2, "Republic Records");
+INSERT into record_label VALUES (3, "Parkwood Entertainment");
+INSERT into record_label VALUES (4, "RCA Records");
+INSERT into record_label VALUES (5, "RCA Records");
+INSERT into record_label VALUES (6, "Def Jam Recordings");
+
+SELECT s.first_name, s.last_name, sg.genre FROM singers s
+JOIN singer_genres sg
+ON s.first_name= sg.first_name;
+
+SELECT s.id, s.first_name, s.last_name, r.record_label, sg.genre FROM singers s
+LEFT JOIN record_label r
+ON s.id= r.id
+LEFT JOIN singer_genres sg 
+ON s.first_name = sg.first_name;
+
+SELECT s.id, s.first_name, r.record_label FROM singers s
+LEFT JOIN record_label r 
+ON s.id= r.id
+WHERE record_label= "RCA Records";
+
+SELECT s.id, s.first_name, s.last_name, m.spouses_name, sg.genre FROM singers s
+JOIN married_singers m
+ON m.first_name= s.first_name 
+JOIN singer_genres sg
+ON s.first_name= sg.first_name;
+
